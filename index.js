@@ -18,12 +18,18 @@ class Timer {
     }
 
     tick = () => {
-        const timerRemaining = this.timerRemaining;
-        this.durationInput.value = timerRemaining - 1
+        this.timerRemaining <= 0 ?
+            this.pause()
+            :
+            this.timerRemaining -= 1
     }
 
     get timerRemaining() {
         return parseFloat(this.durationInput.value)
+    }
+
+    set timerRemaining(time) {
+        this.durationInput.value = time
     }
 }
 
